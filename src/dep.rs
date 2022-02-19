@@ -163,6 +163,9 @@ impl Dep {
             }
         }
         for i in &r {
+            if i.starts_with("LINK : ") {
+                continue;
+            }
             if !self.search_dll(i.as_str()) {
                 return false;
             }
